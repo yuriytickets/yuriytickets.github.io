@@ -1,0 +1,510 @@
+verb@verb /v/w/yuriytickets.github.io:master> #HW2 Start
+verb@verb /v/w/yuriytickets.github.io:master> git checkout -b architecture
+Switched to a new branch 'architecture'
+verb@verb /v/w/yuriytickets.github.io:architecture> mkdir assets
+verb@verb /v/w/yuriytickets.github.io:architecture> mkdir uploads
+verb@verb /v/w/yuriytickets.github.io:architecture> git status 
+On branch architecture
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:architecture> cd assets/
+verb@verb /v/w/y/assets:architecture> echo "some code for start" > all.js
+verb@verb /v/w/y/assets:architecture> ls
+all.js
+verb@verb /v/w/y/assets:architecture> echo "some other code for start" > css.js
+verb@verb /v/w/y/assets:architecture> git status 
+On branch architecture
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	./
+
+nothing added to commit but untracked files present (use "git add" to track)
+verb@verb /v/w/y/assets:architecture> cd ..
+verb@verb /v/w/yuriytickets.github.io:architecture> git status 
+On branch architecture
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	assets/
+
+nothing added to commit but untracked files present (use "git add" to track)
+verb@verb /v/w/yuriytickets.github.io:architecture> git add .
+verb@verb /v/w/yuriytickets.github.io:architecture> git commit -m "hw2-1"
+[architecture 67561f0] hw2-1
+ 2 files changed, 2 insertions(+)
+ create mode 100644 assets/all.js
+ create mode 100644 assets/css.js
+verb@verb /v/w/yuriytickets.github.io:architecture> git push origin architecture 
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 445 bytes | 0 bytes/s, done.
+Total 5 (delta 0), reused 0 (delta 0)
+To git@github.com:yuriytickets/yuriytickets.github.io.git
+ * [new branch]      architecture -> architecture
+verb@verb /v/w/yuriytickets.github.io:architecture> ls
+assets/  hw1.html  hw2.html  index.html  uploads/
+verb@verb /v/w/yuriytickets.github.io:architecture> git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> architecture
+
+verb@verb /v/w/yuriytickets.github.io:architecture> git status 
+On branch architecture
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:architecture> git add uploads/
+verb@verb /v/w/yuriytickets.github.io:architecture> git commit -m "add missing folder"
+On branch architecture
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:architecture> git push origin architecture 
+Everything up-to-date
+verb@verb /v/w/yuriytickets.github.io:architecture> tig
+verb@verb /v/w/yuriytickets.github.io:architecture> cd uploads/
+verb@verb /v/w/y/uploads:architecture> subl .gitignore
+verb@verb /v/w/y/uploads:architecture> git sta
+stash  (Stash away changes)  status  (Show the working tree status)  
+verb@verb /v/w/y/uploads:architecture> git status 
+On branch architecture
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	./
+
+nothing added to commit but untracked files present (use "git add" to track)
+verb@verb /v/w/y/uploads:architecture> cd ..
+verb@verb /v/w/yuriytickets.github.io:architecture> git status 
+On branch architecture
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	uploads/
+
+nothing added to commit but untracked files present (use "git add" to track)
+verb@verb /v/w/yuriytickets.github.io:architecture> git add uploads/
+verb@verb /v/w/yuriytickets.github.io:architecture> git commit -m "add missing folder"
+[architecture b5edc6b] add missing folder
+ 1 file changed, 2 insertions(+)
+ create mode 100644 uploads/.gitignore
+verb@verb /v/w/yuriytickets.github.io:architecture> git push origin architecture 
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 341 bytes | 0 bytes/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+To git@github.com:yuriytickets/yuriytickets.github.io.git
+   67561f0..b5edc6b  architecture -> architecture
+verb@verb /v/w/yuriytickets.github.io:architecture> #HW2-2
+verb@verb /v/w/yuriytickets.github.io:architecture> git branch rebase_branch
+verb@verb /v/w/yuriytickets.github.io:architecture> echo "im trying rebase" >> assets/css.js
+verb@verb /v/w/yuriytickets.github.io:architecture> git diff
+diff --git a/assets/css.js b/assets/css.js
+index 8232717..4734300 100644
+--- a/assets/css.js
++++ b/assets/css.js
+@@ -1 +1,2 @@
+ some other code for start
++im trying rebase
+verb@verb /v/w/yuriytickets.github.io:architecture> git add assets/css.js 
+verb@verb /v/w/yuriytickets.github.io:architecture> git commit -m "1 commit for rebase"
+[architecture d45221b] 1 commit for rebase
+ 1 file changed, 1 insertion(+)
+verb@verb /v/w/yuriytickets.github.io:architecture> echo "im trying rebase more and more" >> assets/css.js
+verb@verb /v/w/yuriytickets.github.io:architecture> git add assets/css.js 
+verb@verb /v/w/yuriytickets.github.io:architecture> git commit -m "2 commit for rebase"
+[architecture 5e13865] 2 commit for rebase
+ 1 file changed, 1 insertion(+)
+verb@verb /v/w/yuriytickets.github.io:architecture> git merge master
+Already up-to-date.
+verb@verb /v/w/yuriytickets.github.io:architecture> tig
+verb@verb /v/w/yuriytickets.github.io:architecture> git checkout rebase_branch 
+Switched to branch 'rebase_branch'
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git rebase --onto origin/architecture HEAD^^
+First, rewinding head to replay your work on top of it...
+Fast-forwarded rebase_branch to origin/architecture.
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> gitk
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git checkout architecture 
+Switched to branch 'architecture'
+verb@verb /v/w/yuriytickets.github.io:architecture> git push origin architecture 
+Counting objects: 44, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (27/27), done.
+Writing objects: 100% (44/44), 3.85 KiB | 0 bytes/s, done.
+Total 44 (delta 11), reused 17 (delta 3)
+To git@github.com:yuriytickets/yuriytickets.github.io.git
+ * [new branch]      architecture -> architecture
+verb@verb /v/w/yuriytickets.github.io:architecture> git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+verb@verb /v/w/yuriytickets.github.io:master> git status 
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:master> git pull
+remote: Counting objects: 2, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (2/2), done.
+From github.com:yuriytickets/yuriytickets.github.io
+   4980ca3..10b8a1d  master     -> origin/master
+Updating 4980ca3..10b8a1d
+Fast-forward
+ assets/all.js      | 1 +
+ assets/css.js      | 3 +++
+ uploads/.gitignore | 2 ++
+ 3 files changed, 6 insertions(+)
+ create mode 100644 assets/all.js
+ create mode 100644 assets/css.js
+ create mode 100644 uploads/.gitignore
+verb@verb /v/w/yuriytickets.github.io:master> git checkout rebase_branch 
+Switched to branch 'rebase_branch'
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git rebase --onto origin/master HEAD^^
+First, rewinding head to replay your work on top of it...
+Fast-forwarded rebase_branch to origin/master.
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> echo "commit from branch" >> assets/css.js
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git rebase --onto origin/master HEAD^
+Cannot rebase: You have unstaged changes.
+Please commit or stash them.
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git status 
+On branch rebase_branch
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   assets/css.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git add assets/css.js 
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git commit -m "3 commit for rebase"
+[rebase_branch 2a7a528] 3 commit for rebase
+ 1 file changed, 1 insertion(+)
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git rebase --onto origin/master HEAD^
+Current branch rebase_branch is up to date.
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git status 
+On branch rebase_branch
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> gitk
+^Cfish: Job 1, “gitk” terminated by signal SIGINT (Quit request from job control (^C))
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+verb@verb /v/w/yuriytickets.github.io:master> echo "commit from master" >> assets/css.js
+verb@verb /v/w/yuriytickets.github.io:master> git add assets/css.js 
+verb@verb /v/w/yuriytickets.github.io:master> git commit -m "4 commit for rebase"
+[master 1b2c672] 4 commit for rebase
+ 1 file changed, 1 insertion(+)
+verb@verb /v/w/yuriytickets.github.io:master> git checkout rebase_branch 
+Switched to branch 'rebase_branch'
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git sta
+stash  (Stash away changes)  status  (Show the working tree status)  
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git sta
+git: 'sta' is not a git command. See 'git --help'.
+
+Did you mean one of these?
+	status
+	stage
+	stash
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git status 
+On branch rebase_branch
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git rebase --onto origin/master HEAD^
+Current branch rebase_branch is up to date.
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: 3 commit for rebase
+Using index info to reconstruct a base tree...
+M	assets/css.js
+Falling back to patching base and 3-way merge...
+Auto-merging assets/css.js
+CONFLICT (content): Merge conflict in assets/css.js
+Failed to merge in the changes.
+Patch failed at 0001 3 commit for rebase
+The copy of the patch that failed is found in:
+   /var/www/yuriytickets.github.io/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+verb@verb /v/w/yuriytickets.github.io:(no branch, rebasing rebase_branch)> git rebase --continue 
+assets/css.js: needs merge
+You must edit all merge conflicts and then
+mark them as resolved using git add
+verb@verb /v/w/yuriytickets.github.io:(no branch, rebasing rebase_branch)> git status 
+rebase in progress; onto 1b2c672
+You are currently rebasing branch 'rebase_branch' on '1b2c672'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   assets/css.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+verb@verb /v/w/yuriytickets.github.io:(no branch, rebasing rebase_branch)> git add assets/css.js 
+verb@verb /v/w/yuriytickets.github.io:(no branch, rebasing rebase_branch)> git rebase --continue 
+Applying: 3 commit for rebase
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+verb@verb /v/w/yuriytickets.github.io:(no branch, rebasing rebase_branch)> git status 
+rebase in progress; onto 1b2c672
+You are currently rebasing branch 'rebase_branch' on '1b2c672'.
+  (all conflicts fixed: run "git rebase --continue")
+
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:(no branch, rebasing rebase_branch)> git rebase --continue 
+Applying: 3 commit for rebase
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+verb@verb /v/w/yuriytickets.github.io:(no branch, rebasing rebase_branch)> git commit -m "5 commit for rebase"
+rebase in progress; onto 1b2c672
+You are currently rebasing branch 'rebase_branch' on '1b2c672'.
+
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:(no branch, rebasing rebase_branch)> git rebase --continue 
+Applying: 3 commit for rebase
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+verb@verb /v/w/yuriytickets.github.io:(no branch, rebasing rebase_branch)> git rebase --s
+--skip  (Restart the rebasing process by skipping the current patch)  --stat  (Show diffstat of the rebase)  
+verb@verb /v/w/yuriytickets.github.io:(no branch, rebasing rebase_branch)> git rebase --skip 
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git status 
+On branch rebase_branch
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> gitk
+^Cfish: Job 1, “gitk” terminated by signal SIGINT (Quit request from job control (^C))
+verb@verb /v/w/yuriytickets.github.io:rebase_branch> git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+verb@verb /v/w/yuriytickets.github.io:master> git pull
+Already up-to-date.
+verb@verb /v/w/yuriytickets.github.io:master> git checkout rebranch
+error: pathspec 'rebranch' did not match any file(s) known to git.
+verb@verb /v/w/yuriytickets.github.io:master> git checkout -b rebranch
+Switched to a new branch 'rebranch'
+verb@verb /v/w/yuriytickets.github.io:rebranch> git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+verb@verb /v/w/yuriytickets.github.io:master> git pull origin master
+From github.com:yuriytickets/yuriytickets.github.io
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+verb@verb /v/w/yuriytickets.github.io:master> echo "commit from master 111" >> assets/css.js
+verb@verb /v/w/yuriytickets.github.io:master> echo "commit from master 222" >> assets/css.js
+verb@verb /v/w/yuriytickets.github.io:master> git add assets/css.js 
+verb@verb /v/w/yuriytickets.github.io:master> git commit -m "test master rebase"
+[master 29b44e6] test master rebase
+ 1 file changed, 2 insertions(+)
+verb@verb /v/w/yuriytickets.github.io:master> git checkout rebranch
+Switched to branch 'rebranch'
+verb@verb /v/w/yuriytickets.github.io:rebranch> git status 
+On branch rebranch
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:rebranch> git rebase master
+First, rewinding head to replay your work on top of it...
+Fast-forwarded rebranch to master.
+verb@verb /v/w/yuriytickets.github.io:rebranch> gitk
+verb@verb /v/w/yuriytickets.github.io:rebranch> echo "commit from rebranch 222" >> assets/css.js
+verb@verb /v/w/yuriytickets.github.io:rebranch> git add assets/css.js 
+verb@verb /v/w/yuriytickets.github.io:rebranch> git commit -m "test branch rebase"
+[rebranch ac02626] test branch rebase
+ 1 file changed, 1 insertion(+)
+verb@verb /v/w/yuriytickets.github.io:rebranch> gitk
+verb@verb /v/w/yuriytickets.github.io:rebranch> git merge master
+Already up-to-date.
+verb@verb /v/w/yuriytickets.github.io:rebranch> git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+verb@verb /v/w/yuriytickets.github.io:master> git merge reb
+rebase_branch  (Branch)  rebranch  (Branch)  
+verb@verb /v/w/yuriytickets.github.io:master> git merge rebranch 
+Updating 29b44e6..ac02626
+Fast-forward
+ assets/css.js | 1 +
+ 1 file changed, 1 insertion(+)
+verb@verb /v/w/yuriytickets.github.io:master> git branch -d rebranch 
+Deleted branch rebranch (was ac02626).
+verb@verb /v/w/yuriytickets.github.io:master> #HW 2-3
+verb@verb /v/w/yuriytickets.github.io:master> echo "for tags" >> assets/css.js
+verb@verb /v/w/yuriytickets.github.io:master> echo "for tags 2" >> assets/css.js
+verb@verb /v/w/yuriytickets.github.io:master> git add assets/css.js 
+verb@verb /v/w/yuriytickets.github.io:master> git commit -m "tags test"
+[master 7ecb5bf] tags test
+ 1 file changed, 2 insertions(+)
+verb@verb /v/w/yuriytickets.github.io:master> git tag -a v0.1 -m "the first tag ever"
+verb@verb /v/w/yuriytickets.github.io:master> git push origin --tags
+Counting objects: 17, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (17/17), 1.54 KiB | 0 bytes/s, done.
+Total 17 (delta 7), reused 0 (delta 0)
+To git@github.com:yuriytickets/yuriytickets.github.io.git
+ * [new tag]         v0.1 -> v0.1
+verb@verb /v/w/yuriytickets.github.io:master> git submodule add git://github.com/chneukirchen/rack.git rack
+Cloning into 'rack'...
+remote: Counting objects: 10789, done.
+remote: Total 10789 (delta 0), reused 0 (delta 0), pack-reused 10789
+Receiving objects: 100% (10789/10789), 2.20 MiB | 511.00 KiB/s, done.
+Resolving deltas: 100% (6490/6490), done.
+Checking connectivity... done.
+verb@verb /v/w/yuriytickets.github.io:master> git status 
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   .gitmodules
+	new file:   rack
+
+verb@verb /v/w/yuriytickets.github.io:master> git add .
+verb@verb /v/w/yuriytickets.github.io:master> git commit -m "submodule rack"
+[master 9274abb] submodule rack
+ 2 files changed, 4 insertions(+)
+ create mode 100644 .gitmodules
+ create mode 160000 rack
+verb@verb /v/w/yuriytickets.github.io:master> git push origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 389 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To git@github.com:yuriytickets/yuriytickets.github.io.git
+   10b8a1d..9274abb  master -> master
+verb@verb /v/w/yuriytickets.github.io:master> echo "git conflict start" > file.txt
+verb@verb /v/w/yuriytickets.github.io:master> git add .
+verb@verb /v/w/yuriytickets.github.io:master> git commit -m "file.txt"
+[master 3e79d2f] file.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+verb@verb /v/w/yuriytickets.github.io:master> git checkout -b conflict
+Switched to a new branch 'conflict'
+verb@verb /v/w/yuriytickets.github.io:conflict> vim file.txt 
+verb@verb /v/w/yuriytickets.github.io:conflict> git add .
+verb@verb /v/w/yuriytickets.github.io:conflict> git commit -m "file.txt empty"
+[conflict 65b037c] file.txt empty
+ 1 file changed, 1 deletion(-)
+verb@verb /v/w/yuriytickets.github.io:conflict> git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+verb@verb /v/w/yuriytickets.github.io:master> git merge conflict 
+Updating 3e79d2f..65b037c
+Fast-forward
+ file.txt | 1 -
+ 1 file changed, 1 deletion(-)
+verb@verb /v/w/yuriytickets.github.io:master> git status 
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:master> vim file.txt 
+verb@verb /v/w/yuriytickets.github.io:master> git add .
+verb@verb /v/w/yuriytickets.github.io:master> git commit -m "file.txt blblblalla"
+[master 666c29f] file.txt blblblalla
+ 1 file changed, 15 insertions(+)
+verb@verb /v/w/yuriytickets.github.io:master> git checkout conflict 
+Switched to branch 'conflict'
+verb@verb /v/w/yuriytickets.github.io:conflict> echo "sdgfhdgjf rhthdrdhj ftjft" > file.txt
+verb@verb /v/w/yuriytickets.github.io:conflict> git status 
+On branch conflict
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+verb@verb /v/w/yuriytickets.github.io:conflict> git diff
+diff --git a/file.txt b/file.txt
+index e69de29..5908a21 100644
+--- a/file.txt
++++ b/file.txt
+@@ -0,0 +1 @@
++sdgfhdgjf rhthdrdhj ftjft
+verb@verb /v/w/yuriytickets.github.io:conflict> git commit -m "comm on conflict branch"
+On branch conflict
+Changes not staged for commit:
+	modified:   file.txt
+
+no changes added to commit
+verb@verb /v/w/yuriytickets.github.io:conflict> git add .
+verb@verb /v/w/yuriytickets.github.io:conflict> git commit -m "comm on conflict branch"
+[conflict fd2a598] comm on conflict branch
+ 1 file changed, 1 insertion(+)
+verb@verb /v/w/yuriytickets.github.io:conflict> git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+verb@verb /v/w/yuriytickets.github.io:master> echo "echo \"Hello World!\"" > file.txt 
+verb@verb /v/w/yuriytickets.github.io:master> git status 
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+verb@verb /v/w/yuriytickets.github.io:master> git commit -am 'second commit on master'
+[master 04df4b2] second commit on master
+ 1 file changed, 1 insertion(+), 15 deletions(-)
+verb@verb /v/w/yuriytickets.github.io:master> git merge conflict 
+Auto-merging file.txt
+CONFLICT (content): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+verb@verb /v/w/yuriytickets.github.io:master> git merge --abort
+verb@verb /v/w/yuriytickets.github.io:master> git status 
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+verb@verb /v/w/yuriytickets.github.io:master> git merge conflict 
+Auto-merging file.txt
+CONFLICT (content): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+verb@verb /v/w/yuriytickets.github.io:master> git add file.txt 
+verb@verb /v/w/yuriytickets.github.io:master> git commit -m 'resolving conflict'
+[master 66fae3b] resolving conflict
+verb@verb /v/w/yuriytickets.github.io:master> git push origin master
+Counting objects: 15, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (15/15), 1.39 KiB | 0 bytes/s, done.
+Total 15 (delta 7), reused 0 (delta 0)
+To git@github.com:yuriytickets/yuriytickets.github.io.git
+   9274abb..66fae3b  master -> master
+verb@verb /v/w/yuriytickets.github.io:master> git merge conflict 
+Already up-to-date.
+verb@verb /v/w/yuriytickets.github.io:master> 
