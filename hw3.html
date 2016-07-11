@@ -1,1 +1,83 @@
-HW3
+1. Prepare and show message in console.
+	  - Create variables for person name, time, place and event
+	  - Event should be entered using prompt
+	  // tip: var smth = prompt("Please enter value", "Default value");
+	  - Other variables should be set as you wish
+	  - Join all values to one sentence and show it in console
+		// example: Valera has a meeting today at 17:00 somewhere in Warsaw.
+
+
+	var event = {
+		person: "Yura",
+		time: new Date("July, 17, 2016, 10:30"),
+		place: "Zmerynka",
+		name: prompt("What is the event name?", "EU Summit")
+	};
+
+	console.log( event.person + " has " + event.name + " " + event.time.toLocaleDateString() + " at " + event.time.toLocaleTimeString() + " somewhere in " + event.place );
+
+
+
+2. Find and show (using alert) distance between 2 points.
+  - Create variables for x1, y1, x2, y2, result
+  - Coordinates of second point (X2, Y2) should be entered using prompt
+  - Other variables should be set as you wish
+  - Find distance, set it to result variable
+  - Alert the result with description
+	// example: The distance between points A(0,1) and B(0,11) is 10.
+
+
+var startX = 0,
+	startY = 0,
+	end = prompt("Enter X,Y Coordinates, separated by comma", "0,0").split(','),
+ 	endX = Number(end[0]),
+ 	endY = Number(end[1]);
+
+	//result = Math.hypot(endX-startX, endY-startY) ES2015
+	result = Math.sqrt(Math.pow((endX - startX), 2) + Math.pow((endY - startY), 2));
+	alert(result);
+
+
+3. Show in console using FOR.
+  #
+  ##
+  ###
+  ####
+  #####
+  ######
+  #######
+  ########
+  #########
+  ##########
+
+for (var result = ''; result.length <= 10; result += "#") {
+	console.log(result + "\n");
+} // OR ES2015 using result.repeat(i)
+
+4. Show in console using WHILE.
+  # # # # #
+   # # # # #
+  # # # # #
+   # # # # #
+  # # # # #
+   # # # # #
+  # # # # #
+
+var lines = 7;
+while(lines) {
+	var symbols = lines % 2 ? "# " : " #";  
+	console.log( symbols.repeat(5) + "\n");
+	lines--;
+}
+
+5. Create “Guess number” game.
+
+var number = parseInt(Math.random()*100);
+console.log(number); //For debug
+while(hit = prompt("Guess the number 0 - 100")) {
+		if(parseInt(hit) === number) {
+			alert("You are right, the number is " + number); break;
+		} else {
+			alert(hit > number ? "Our number is lower, try again" : "Our number is higher, try again");
+		}
+}
