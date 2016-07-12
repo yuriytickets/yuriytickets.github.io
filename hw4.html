@@ -1,0 +1,33 @@
+<script>
+function tryGuess(i) {
+	switch(i) {
+		case 1: return 10; break;
+		case 2: return 5; break;
+		case 3: return 2; break;
+	}
+}
+
+if(confirm("Wanna start the game?")) {
+	var summ = 0,
+		attempt = 0;
+	do {
+		console.log("current summ is!!! $", summ, "attempt ", attempt); //DEBUG
+		var max = 5 * Math.pow(2, attempt);
+		var num = parseInt(Math.random() * max);
+		console.log(num); //DEBUG
+		for (var i = 1; i <= 3; i++) {
+			if(current = parseInt(prompt("Write the number 0-" + max))) {
+				if(num === current) {
+					summ += tryGuess(i)*Math.pow(3, attempt); break;
+				}
+				if(i === 3) console.log("Looser you are wrong");
+			} else break;
+		}
+		attempt++;
+	} while(confirm("Play again?"))
+	console.log("You won " + summ + "$");
+} else {
+	console.log("Not today)");
+}
+
+</script>
